@@ -13,24 +13,29 @@
         <div class="container pt-5" id="app">
                 <div class="row">
                         <div class="col">
-                                <h2>Наша тестовая страничка с бутcтрап 4 и Vue.js</h2>
+                                <h2>Тестовая страничка</h2>
                         </div>
                 </div>
                 <div class="row">
                         <div class="col-md-3">
                                 <div id="menu">
-                                        <button v-on:click="show_citch">Видео на кухне</button>
+                                        <button class="btn-class" v-on:click="show_citch">Видео на кухне</button>
                                 </div>
                         </div>
-                        <div class="col-md-9">
-                                <div id="main" v-if="show_cam">
+                        <div class="col-md-9 main">
+                                <div v-if="show_cam">
                                         <iframe :src="url_cam" width="644" height="484" align="center"></iframe>
                                 </div>
                         </div>
                 </div>
                 <div class="row">
                         <div class="col">
-                                <h6>Температура малинки(если доступна):{{pi_term}}</h6>
+                                <h6>Температура малинки(если доступна):
+                                        <i>{{pi_term}}</i>
+                                </h6>
+                                <div class="footer1">
+                                        <span>Приложение работает на Vue.js в сетке бутcтрап 4</span>
+                                </div>
                         </div>
                 </div>
         </div>
