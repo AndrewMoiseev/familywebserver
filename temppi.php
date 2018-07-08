@@ -21,6 +21,8 @@ function get_content($url)
 
 $temperature = get_content('http://'.$ip.':9898/cgi-bin/t.py');
 
+header('Content-type: text/html');
+header('Access-Control-Allow-Origin: *');
 echo $temperature;
 
 ?>
