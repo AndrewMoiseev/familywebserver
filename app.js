@@ -19,18 +19,24 @@ new Vue({
         //this.url_cam = "http://5.79.154.148:8881";
       }
       this.show_cam = !this.show_cam;
+    },
+    startInterval: function() {
+      const self = this;
+      setInterval(function() {
+        axios
+          .get("http://moiseev.tk/temppi.php")
+          .then(response => {
+            self.pi_term = response.data;
+          })
+          .catch(error => {
+            console.log(error);
+            self.errored = true;
+          })
+          .finally(() => (self.loading = false));
+      }, 2500);
     }
   },
   mounted() {
-    axios
-      .get("temppi.php")
-      .then(response => {
-        this.pi_term = response.data.response;
-      })
-      .catch(error => {
-        console.log(error);
-        this.errored = true;
-      })
-      .finally(() => (this.loading = false));
+    this.startInterval();
   }
 });
